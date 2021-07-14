@@ -10,8 +10,6 @@
       </v-container>
     </v-main>
 
-    <core-view />
-
     <core-footer />
   </v-app>
 </template>
@@ -22,6 +20,8 @@ export default {
 
   components: {
     CoreAppBar: () => import('@/components/core/AppBar'),
+    CoreSideMenu: () => import('@/components/core/SideMenu'),
+
     CoreDrawer: () => import('@/components/core/Drawer'),
     CoreFooter: () => import('@/components/core/Footer'),
   },

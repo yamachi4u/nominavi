@@ -1,29 +1,33 @@
 <template>
   <section class="index">
-    <card
-      v-for="(pub, i) in pubs"
-      :key="i"
-      :name="pub.fields.name"
-      :id="pub.sys.id"
-      :phone_number="pub.fields.phoneNumber"
-      :link="pub.fields.link"
-    />
+    <v-row dense>
+      <card
+        v-for="(pub, i) in pubs"
+        :key="i"
+        :name="pub.fields.name"
+        :id="pub.sys.id"
+        :phone_number="pub.fields.phoneNumber"
+        :link="pub.fields.link"
+        :image="pub.fields.image"
+      />
+    </v-row>
   </section>
 </template>
 
 <script>
-import Card from '~/components/Card.vue'
 import CONSTANTS from '~/lib/constants.js'
 import { createClient } from '~/plugins/contentful.js'
 
 export default {
   transition: 'slide-left',
   components: {
-    Card
+    Card: () => import('@/components/Card'),
   },
   asyncData() {
     return createClient()
-      .getEntries(CONSTANTS.CTF_PUB_TYPE_ID)
+      .getEntries({
+        content_type: CONSTANTS.CTF_PUB_TYPE_ID
+      })
       .then(entries => {
         return {
           pubs: entries.items
