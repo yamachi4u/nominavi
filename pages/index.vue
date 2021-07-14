@@ -13,8 +13,8 @@
 
 <script>
 import Card from '~/components/Card.vue'
-import client from '~/plugins/contentful.js'
 import CONSTANTS from '~/lib/constants.js'
+import { createClient } from '~/plugins/contentful.js'
 
 export default {
   transition: 'slide-left',
@@ -22,7 +22,7 @@ export default {
     Card
   },
   asyncData() {
-    return client
+    return createClient()
       .getEntries(CONSTANTS.CTF_PUB_TYPE_ID)
       .then(entries => {
         return {

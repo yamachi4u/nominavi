@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import client from '~/plugins/contentful.js'
+import { createClient } from '~/plugins/contentful.js'
 
 export default {
   props: {
@@ -22,7 +22,7 @@ export default {
   },
   transition: 'slide-right',
   async asyncData({ params }) {
-    return await client
+    return await createClient()
       .getEntry(params.slug)
       .then(entry => {
         return {

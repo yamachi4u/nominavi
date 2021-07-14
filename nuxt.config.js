@@ -2,11 +2,14 @@ import colors from 'vuetify/es5/util/colors'
 
 const CONSTANTS = require('./lib/constants.js')
 const { getConfigForKeys } = require('./lib/config.js')
+const { createClient } = require('./plugins/contentful.js')
 
 const ctfConfig = getConfigForKeys([
   'CTF_SPACE_ID',
   'CTF_CDA_ACCESS_TOKEN'
 ])
+
+const cdaClient = createClient(ctfConfig)
 
 export default {
   // Target: https://go.nuxtjs.dev/config-target
