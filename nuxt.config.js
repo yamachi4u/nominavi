@@ -1,5 +1,13 @@
 import colors from 'vuetify/es5/util/colors'
 
+const CONSTANTS = require('./lib/constants.js')
+const { getConfigForKeys } = require('./lib/config.js')
+
+const ctfConfig = getConfigForKeys([
+  'CTF_SPACE_ID',
+  'CTF_CDA_ACCESS_TOKEN'
+])
+
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
@@ -47,22 +55,25 @@ export default {
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     theme: {
-      dark: true,
-      themes: {
-        dark: {
-          primary: colors.blue.darken2,
-          accent: colors.grey.darken3,
-          secondary: colors.amber.darken3,
-          info: colors.teal.lighten1,
-          warning: colors.amber.base,
-          error: colors.deepOrange.accent4,
-          success: colors.green.accent3
-        }
-      }
     }
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+  },
+
+  generate: {
+    routes() {
+      return cdaClient
+        .getEntries(CONSTANTS.CTF_PUB_TYPE_ID)
+        .then(entries => {
+          return [...entries.items.map(entry => `/pub/${entry.fields.slug}`)]
+        })
+    }
+  },
+
+  env: {
+    CTF_SPACE_ID: ctfConfig.CTF_SPACE_ID,
+    CTF_CDA_ACCESS_TOKEN: ctfConfig.CTF_CDA_ACCESS_TOKEN
   }
 }
