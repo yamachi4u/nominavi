@@ -20,7 +20,7 @@ export default {
     titleTemplate: '%s - antabe',
     title: 'antabe',
     htmlAttrs: {
-      lang: 'en'
+      lang: 'ja'
     },
     meta: [
       { charset: 'utf-8' },
