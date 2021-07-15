@@ -37,7 +37,6 @@
           append-icon="mdi-magnify"
           flat
           hide-details
-          solo-inverted
           style="max-width: 300px;"
         />
       </v-row>
@@ -46,15 +45,12 @@
 </template>
 
 <script>
-  // Utilities
   import {
     mapGetters,
     mapMutations,
   } from 'vuex'
 
   export default {
-    name: 'CoreAppBar',
-
     computed: {
       ...mapGetters(['links']),
     },

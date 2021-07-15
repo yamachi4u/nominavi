@@ -37,8 +37,6 @@
 
 <script>
   export default {
-    name: 'CoreFooter',
-
     data: () => ({
       items: [
         {

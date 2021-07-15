@@ -20,15 +20,12 @@
 </template>
 
 <script>
-  // Utilities
   import {
     mapGetters,
     mapMutations,
   } from 'vuex'
 
   export default {
-    name: 'CoreDrawer',
-
     computed: {
       ...mapGetters(['links']),
       drawer: {

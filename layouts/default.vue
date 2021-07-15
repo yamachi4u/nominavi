@@ -30,16 +30,3 @@
   </v-app>
 </template>
 
-<script>
-export default {
-  name: 'App',
-
-  components: {
-    CoreAppBar: () => import('@/components/core/AppBar'),
-    CoreSideMenu: () => import('@/components/core/SideMenu'),
-
-    CoreDrawer: () => import('@/components/core/Drawer'),
-    CoreFooter: () => import('@/components/core/Footer'),
-  },
-}
-</script>
