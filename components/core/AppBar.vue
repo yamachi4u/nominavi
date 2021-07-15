@@ -10,16 +10,6 @@
 
     <v-container class="mx-auto py-0">
       <v-row align="center">
-        <v-img
-          :src="require('@/assets/logo.png')"
-          class="mr-5"
-          contain
-          height="48"
-          width="48"
-          max-width="48"
-          @click="$vuetify.goTo(0)"
-        />
-
         <v-btn
           v-for="(link, i) in links"
           :key="i"
