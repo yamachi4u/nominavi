@@ -6,7 +6,23 @@
 
     <v-main>
       <v-container>
-        <Nuxt />
+        <v-row>
+          <v-col
+            cols="12"
+            md="4"
+          >
+            <core-side-menu />
+          </v-col>
+
+          <v-col
+            cols="12"
+            md="8"
+          >
+            <v-container>
+              <Nuxt />
+            </v-container>
+          </v-col>
+        </v-row>
       </v-container>
     </v-main>
 

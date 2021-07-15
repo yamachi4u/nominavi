@@ -1,68 +1,44 @@
 <template>
-  <v-card
-    :loading="loading"
-    class="mx-auto my-12"
-    max-width="374"
-  >
-    <template slot="progress">
-      <v-progress-linear
-        color="deep-purple"
-        height="10"
-        indeterminate
-      ></v-progress-linear>
-    </template>
-
-    <nuxt-link
-      :to="'pub/'+id"
+  <v-col cols="12">
+    <v-card
+      elevation="5"
+      class="my-6"
+      :to="'/pub/'+id"
     >
-      <v-img
-        v-if="image"
-        height="250"
-        :src="image.fields.file.url"
-      ></v-img>
-
-      <v-card-title>{{ name }}</v-card-title>
-
-      <v-card-text>
-        <v-row
-          align="center"
-          class="mx-0"
+      <div class="d-flex">
+        <v-avatar
+          class="ma-3"
+          size="200"
+          tile
         >
-          <v-rating
-            :value="4.5"
-            color="amber"
-            dense
-            half-increments
-            readonly
-            size="14"
-          ></v-rating>
-
-          <div class="grey--text ms-4">
-            4.5 (413)
+          <v-img :src="image.fields.file.url"></v-img>
+        </v-avatar>
+        <div>
+          <v-card-title
+            class="text-h5"
+            v-text="name"
+          ></v-card-title>
+          <div>
+            営業時間: {{}}
           </div>
-        </v-row>
-
-        <div class="my-4 text-subtitle-1">
-          $ • Italian, Cafe
+          <div>
+            ジャンル:
+            <v-chip
+              class="ma-2"
+            >
+              居酒屋
+            </v-chip>
+            <v-chip
+              class="ma-2"
+            >
+              海鮮
+            </v-chip>
+          </div>
         </div>
 
-        <div>Small plates, salads & sandwiches - an intimate setting with 12 indoor seats plus patio seating.</div>
-      </v-card-text>
-    </nuxt-link>
-
-    <v-divider class="mx-4"></v-divider>
-
-    <v-card-actions>
-      <a :href="link">
-        <v-btn
-          color="deep-purple lighten-2"
-          text
-        >
-          食べログリンク
-        </v-btn>
-      </a>
-    </v-card-actions>
-  </v-card>
+      </div>
+    </v-card>
+  </v-col>
 </template>
 <script>
 export default {
@@ -95,9 +71,3 @@ export default {
 }
 </script>
 
-<style scoped>
-a {
-  color: black;
-  text-decoration: none;
-}
-</style>

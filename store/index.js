@@ -1,3 +1,6 @@
+import CONSTANTS from '~/lib/constants.js'
+import { createClient } from '~/plugins/contentful.js'
+
 export const state = () => ({
   items: [
     {
@@ -9,6 +12,8 @@ export const state = () => ({
       href: '#about',
     },
   ],
+  areas: [],
+  news: [],
 })
 
 export const mutations = {
@@ -20,5 +25,27 @@ export const getters = {
   links: (state, getters) => {
     return state.items
   },
+}
+
+export const actions = {
+  async nuxtServerInit ({ state }) {
+    const areas = (await createClient().
+      getEntries({
+      content_type: CONSTANTS.CTF_AREA_TYPE_ID,
+      order: "-sys.createdAt",
+    }))
+      .items
+
+    const news = (await createClient().
+      getEntries({
+      content_type: CONSTANTS.CTF_PUB_TYPE_ID,
+      order: "-sys.createdAt",
+      limit: 5,
+    }))
+      .items
+
+    state.areas = areas
+    state.news = news
+  }
 }
 
