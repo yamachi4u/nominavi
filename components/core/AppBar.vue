@@ -33,12 +33,7 @@
 
         <v-spacer />
 
-        <v-text-field
-          append-icon="mdi-magnify"
-          flat
-          hide-details
-          style="max-width: 300px;"
-        />
+        <search-form />
       </v-row>
     </v-container>
   </v-app-bar>

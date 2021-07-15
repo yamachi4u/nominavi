@@ -35,9 +35,9 @@ export default {
       })
     ).items
 
-    const length = Math.ceil(pubs.length / CONSTANTS.AREAS_PER_PAGE)
+    const length = Math.ceil(pubs.length / CONSTANTS.PUBS_PER_PAGE)
 
-    const displayPubs = pubs.slice(0, CONSTANTS.AREAS_PER_PAGE)
+    const displayPubs = pubs.slice(0, CONSTANTS.PUBS_PER_PAGE)
 
     return {
       page: 1,
@@ -50,8 +50,8 @@ export default {
   methods: {
     pageChange: function(pageNumber) {
       this.displayPubs = this.pubs.slice(
-        CONSTANTS.AREAS_PER_PAGE * (pageNumber - 1),
-        CONSTANTS.AREAS_PER_PAGE * pageNumber
+        CONSTANTS.PUBS_PER_PAGE * (pageNumber - 1),
+        CONSTANTS.PUBS_PER_PAGE * pageNumber
       )
     }
   },
