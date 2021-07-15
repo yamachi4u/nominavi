@@ -19,9 +19,6 @@ import CONSTANTS from '~/lib/constants.js'
 import { createClient } from '~/plugins/contentful.js'
 
 export default {
-  components: {
-    Card: () => import('@/components/Card'),
-  },
   asyncData() {
     return createClient()
       .getEntries({
