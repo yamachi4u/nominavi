@@ -2,59 +2,71 @@
   <v-navigation-drawer
     v-model="drawer"
     app
-    dark
     temporary
   >
     <v-list>
+
       <v-list-item
-        v-for="(link, i) in links"
-        :key="i"
-        :to="link.to"
-        :href="link.href"
-        @click="onClick($event, link)"
+        to="/"
       >
-        <v-list-item-title v-text="link.text" />
+        <v-list-item-title>
+          ホーム
+        </v-list-item-title>
       </v-list-item>
+
+      <v-list-group
+        no-action
+      >
+        <template v-slot:activator>
+          <v-list-item-title>エリア</v-list-item-title>
+        </template>
+
+        <v-list-item
+          v-for="(area, index) in $store.state.areas"
+          :key="index"
+          :to="'/area/'+area.fields.slug"
+        >
+          <v-list-item-title>{{ area.fields.name }}</v-list-item-title>
+        </v-list-item>
+      </v-list-group>
+
+      <v-list-item
+        to="/form"
+      >
+        <v-list-item-title>
+          情報提供
+        </v-list-item-title>
+      </v-list-item>
+
     </v-list>
   </v-navigation-drawer>
 </template>
 
 <script>
-  import {
-    mapGetters,
-    mapMutations,
-  } from 'vuex'
+import {
+  mapMutations,
+} from 'vuex'
 
-  export default {
-    computed: {
-      ...mapGetters(['links']),
-      drawer: {
-        get () {
-          return this.$store.state.drawer
-        },
-        set (val) {
-          this.setDrawer(val)
-        },
+export default {
+  computed: {
+    drawer: {
+      get () {
+        return this.$store.state.drawer
+      },
+      set (val) {
+        this.setDrawer(val)
       },
     },
+  },
 
-    methods: {
-      ...mapMutations(['setDrawer']),
-      onClick (e, item) {
-        e.stopPropagation()
-
-        if (item.to === '/') {
-          this.$vuetify.goTo(0)
-          this.setDrawer(false)
-          return
-        }
-
-        if (item.to || !item.href) return
-
-        this.$vuetify.goTo(item.href)
-        this.setDrawer(false)
-      },
-    },
-  }
+  methods: {
+    ...mapMutations(['setDrawer']),
+  },
+}
 </script>
 
+<style scoped>
+.v-list-group--no-action > .v-list-group__items > .v-list-item {
+  padding-left: 36px;
+}
+</style>
