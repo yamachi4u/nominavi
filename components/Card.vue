@@ -8,7 +8,7 @@
       <div class="d-flex">
         <v-avatar
           class="ma-3"
-          size="200"
+          size="150"
           tile
         >
           <v-img :src="image.fields.file.url"></v-img>
