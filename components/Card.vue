@@ -64,7 +64,7 @@ export default {
       default: ''
     },
     image: {
-      type: String,
+      type: Object,
       default: ''
     }
   }
