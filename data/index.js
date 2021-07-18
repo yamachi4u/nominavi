@@ -3,15 +3,18 @@ const fs = require("fs");
 const https = require('https');
 const { readFileSync } = require("fs");
 
+let categories;
+let tags;
+
 const readJson = (path) => {
   return JSON.parse(readFileSync(path));
 };
 
-const exportVideoDataJson = (data) => {
+const writeJson = (data) => {
   return new Promise((resolve) => {
-    const videoDataPath = "./data.json";
-    fs.writeFileSync(videoDataPath, JSON.stringify(data));
-    console.log("exported video data to json");
+    const path = "./data.json";
+    fs.writeFileSync(path, JSON.stringify(data));
+    console.log("wrote to json");
   });
 };
 
@@ -52,6 +55,17 @@ const getLink = (content) => {
     content.indexOf(endWord)
   );
 }
+
+const convertCategories = (categoryIdArr) => {
+  return categoryIdArr?.map((id)=> {
+    return categories.find((c)=> c.id === id).name;
+  })
+}
+const convertTags = (tagIdArr) => {
+  return tagIdArr?.map((id)=> {
+    return tags.find((c)=> c.id === id).name;
+  })
+}
 const getMediaUrl = (url) => {
    return new Promise(((resolve,reject)=>{
         console.log('Promiseの引数の関数開始');
@@ -89,7 +103,8 @@ const convertJson = async (item) => {
   const seats = getParseResult(content, "席・設備：");
   const mapIframe = getIframe(content);
   const link = getLink(content);
-
+  const area = convertCategories(item.categories);
+  const genre = convertTags(item.tags);
   const wpMediaUrl = item["_links"]["wp:featuredmedia"][0].href;
   //const imageUrl = await getMediaUrl(wpMediaUrl);
   return {
@@ -105,15 +120,16 @@ const convertJson = async (item) => {
     mapIframe,
     wpMediaUrl,
     link,
+    area,
+    genre,
     date: item.date,
-    mediaUrl: item["_links"]["wp:featuredmedia"].href,
-    categories: item.categories,
-    tags: item.tags,
   };
 };
 
 (async ()=>{
 
+  categories = readJson('./raw/categories.json');
+  tags = readJson('./raw/tags.json');
   let obj = [];
   const filePathArr = [1, 2, 3].map((num) => `./raw/posts_${num}.json`);
   for (const path of filePathArr) {
@@ -124,7 +140,7 @@ const convertJson = async (item) => {
     obj = [...obj, ...json];
   }
 
-  exportVideoDataJson(obj);
+  writeJson(obj);
 })();
 
 
