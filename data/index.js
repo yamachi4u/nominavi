@@ -44,6 +44,14 @@ const getIframe = (content) => {
   );
 };
 
+const getLink = (content) => {
+  const startWord = "https://tabelog.com/";
+  const endWord = `\" title=\"`
+  return content.substring(
+    content.indexOf(startWord),
+    content.indexOf(endWord)
+  );
+}
 const getMediaUrl = (url) => {
    return new Promise(((resolve,reject)=>{
         console.log('Promiseの引数の関数開始');
@@ -80,6 +88,7 @@ const convertJson = async (item) => {
   const payment = getParseResult(content, "支払い方法：");
   const seats = getParseResult(content, "席・設備：");
   const mapIframe = getIframe(content);
+  const link = getLink(content);
 
   const wpMediaUrl = item["_links"]["wp:featuredmedia"][0].href;
   //const imageUrl = await getMediaUrl(wpMediaUrl);
@@ -95,6 +104,7 @@ const convertJson = async (item) => {
     seats,
     mapIframe,
     wpMediaUrl,
+    link,
     date: item.date,
     mediaUrl: item["_links"]["wp:featuredmedia"].href,
     categories: item.categories,
