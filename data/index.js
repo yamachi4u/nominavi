@@ -103,7 +103,7 @@ const convertJson = async (item) => {
   const seats = getParseResult(content, "席・設備：");
   const mapIframe = getIframe(content);
   const link = getLink(content);
-  const area = convertCategories(item.categories);
+  const area = convertCategories(item.categories)[0];
   const genre = convertTags(item.tags);
   const wpMediaUrl = item["_links"]["wp:featuredmedia"][0].href;
   //const imageUrl = await getMediaUrl(wpMediaUrl);
