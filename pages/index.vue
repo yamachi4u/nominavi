@@ -1,36 +1,23 @@
 <template>
   <section class="index">
-    <v-row dense>
-      <card
-        v-for="(pub, i) in pubs"
-        :key="i"
-        :name="pub.fields.name"
-        :id="pub.sys.id"
-        :phone_number="pub.fields.phoneNumber"
-        :link="pub.fields.link"
-        :image="pub.fields.image"
-      />
-    </v-row>
+    <Search />
+    <v-container>
+      <h1>
+        ABOUT
+      </h1>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec placerat tincidunt tellus sed molestie. Aliquam bibendum semper sem, non feugiat tortor scelerisque vel. Nam sed ligula eu erat condimentum mollis. Vivamus est neque, rhoncus bibendum lorem sed, faucibus gravida leo. Nulla mollis ultrices dui, ac bibendum ex faucibus sed. Fusce ligula libero, scelerisque ut neque nec, sagittis sagittis velit. Proin massa tortor, cursus vitae lacinia at, pulvinar id dolor.
+      </p>
+    </v-container>
+    <RandomPickup />
+    <v-container>
+      <h1>
+        店舗情報を募集します
+      </h1>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec placerat tincidunt tellus sed molestie. Aliquam bibendum semper sem, non feugiat tortor scelerisque vel. Nam sed ligula eu erat condimentum mollis. Vivamus est neque, rhoncus bibendum lorem sed, faucibus gravida leo. Nulla mollis ultrices dui, ac bibendum ex faucibus sed. Fusce ligula libero, scelerisque ut neque nec, sagittis sagittis velit. Proin massa tortor, cursus vitae lacinia at, pulvinar id dolor.
+      </p>
+    </v-container>
   </section>
 </template>
-
-<script>
-import CONSTANTS from '~/lib/constants.js'
-import { createClient } from '~/plugins/contentful.js'
-
-export default {
-  asyncData() {
-    return createClient()
-      .getEntries({
-        content_type: CONSTANTS.CTF_PUB_TYPE_ID
-      })
-      .then(entries => {
-        return {
-          pubs: entries.items
-        }
-      })
-      .catch(console.error)
-  }
-}
-</script>
 

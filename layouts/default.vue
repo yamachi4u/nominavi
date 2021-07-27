@@ -7,21 +7,7 @@
     <v-main>
       <v-container>
         <v-row>
-          <v-col
-            cols="12"
-            md="4"
-            order-lg=first
-            order-md=first
-          >
-            <core-side-menu />
-          </v-col>
-
-          <v-col
-            cols="12"
-            md="8"
-            order=first
-            order-sm=first
-          >
+          <v-col>
             <v-container>
               <Nuxt />
             </v-container>

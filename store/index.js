@@ -4,7 +4,7 @@ import { createClient } from '~/plugins/contentful.js'
 export const state = () => ({
   drawer: false,
   areas: [],
-  news: [],
+  pubs: [],
 })
 
 export const mutations = {
@@ -16,21 +16,19 @@ export const actions = {
   async nuxtServerInit ({ state }) {
     const areas = (await createClient().
       getEntries({
-      content_type: CONSTANTS.CTF_AREA_TYPE_ID,
-      order: "-sys.createdAt",
+        content_type: CONSTANTS.CTF_AREA_TYPE_ID,
+        order: "-sys.createdAt",
     }))
-      .items
+    .items
 
-    const news = (await createClient().
+    const pubs = (await createClient().
       getEntries({
-      content_type: CONSTANTS.CTF_PUB_TYPE_ID,
-      order: "-sys.createdAt",
-      limit: 5,
+        content_type: CONSTANTS.CTF_PUB_TYPE_ID,
     }))
-      .items
+    .items
 
     state.areas = areas
-    state.news = news
+    state.pubs = pubs
   }
 }
 
