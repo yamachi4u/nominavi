@@ -1,0 +1,317 @@
+[
+  {
+    "metadata": { "tags": [] },
+    "sys": {
+      "space": {
+        "sys": { "type": "Link", "linkType": "Space", "id": "hyexi1yqc2dw" }
+      },
+      "id": "3hjypVMyjVMMA0vX2g3O5p",
+      "type": "Entry",
+      "createdAt": "2021-07-18T10:02:36.458Z",
+      "updatedAt": "2021-07-18T10:02:36.458Z",
+      "environment": {
+        "sys": { "id": "master", "type": "Link", "linkType": "Environment" }
+      },
+      "revision": 1,
+      "contentType": {
+        "sys": { "type": "Link", "linkType": "ContentType", "id": "area" }
+      },
+      "locale": "ja"
+    },
+    "fields": { "name": "豊島区", "slug": "豊島区" }
+  },
+  {
+    "metadata": { "tags": [] },
+    "sys": {
+      "space": {
+        "sys": { "type": "Link", "linkType": "Space", "id": "hyexi1yqc2dw" }
+      },
+      "id": "7bnuvbByMpHu6dlbetKTvC",
+      "type": "Entry",
+      "createdAt": "2021-07-18T10:02:35.865Z",
+      "updatedAt": "2021-07-18T10:02:35.865Z",
+      "environment": {
+        "sys": { "id": "master", "type": "Link", "linkType": "Environment" }
+      },
+      "revision": 1,
+      "contentType": {
+        "sys": { "type": "Link", "linkType": "ContentType", "id": "area" }
+      },
+      "locale": "ja"
+    },
+    "fields": { "name": "新宿区", "slug": "新宿区" }
+  },
+  {
+    "metadata": { "tags": [] },
+    "sys": {
+      "space": {
+        "sys": { "type": "Link", "linkType": "Space", "id": "hyexi1yqc2dw" }
+      },
+      "id": "7DSP5sMDrM3Aixylk4CTIP",
+      "type": "Entry",
+      "createdAt": "2021-07-18T10:02:34.629Z",
+      "updatedAt": "2021-07-18T10:02:34.629Z",
+      "environment": {
+        "sys": { "id": "master", "type": "Link", "linkType": "Environment" }
+      },
+      "revision": 1,
+      "contentType": {
+        "sys": { "type": "Link", "linkType": "ContentType", "id": "area" }
+      },
+      "locale": "ja"
+    },
+    "fields": { "name": "台東区", "slug": "台東区" }
+  },
+  {
+    "metadata": { "tags": [] },
+    "sys": {
+      "space": {
+        "sys": { "type": "Link", "linkType": "Space", "id": "hyexi1yqc2dw" }
+      },
+      "id": "54JCeK0eULTfCO6bXIOAKl",
+      "type": "Entry",
+      "createdAt": "2021-07-18T10:02:34.231Z",
+      "updatedAt": "2021-07-18T10:02:34.231Z",
+      "environment": {
+        "sys": { "id": "master", "type": "Link", "linkType": "Environment" }
+      },
+      "revision": 1,
+      "contentType": {
+        "sys": { "type": "Link", "linkType": "ContentType", "id": "area" }
+      },
+      "locale": "ja"
+    },
+    "fields": { "name": "千代田区", "slug": "千代田区" }
+  },
+  {
+    "metadata": { "tags": [] },
+    "sys": {
+      "space": {
+        "sys": { "type": "Link", "linkType": "Space", "id": "hyexi1yqc2dw" }
+      },
+      "id": "4SeNJ0bTUAwz9BSfa6FF2W",
+      "type": "Entry",
+      "createdAt": "2021-07-18T10:02:33.964Z",
+      "updatedAt": "2021-07-18T10:02:33.964Z",
+      "environment": {
+        "sys": { "id": "master", "type": "Link", "linkType": "Environment" }
+      },
+      "revision": 1,
+      "contentType": {
+        "sys": { "type": "Link", "linkType": "ContentType", "id": "area" }
+      },
+      "locale": "ja"
+    },
+    "fields": { "name": "渋谷区", "slug": "渋谷区" }
+  },
+  {
+    "metadata": { "tags": [] },
+    "sys": {
+      "space": {
+        "sys": { "type": "Link", "linkType": "Space", "id": "hyexi1yqc2dw" }
+      },
+      "id": "6S2mlwp1I17bNDoim6pcoh",
+      "type": "Entry",
+      "createdAt": "2021-07-18T10:02:33.813Z",
+      "updatedAt": "2021-07-18T10:02:33.813Z",
+      "environment": {
+        "sys": { "id": "master", "type": "Link", "linkType": "Environment" }
+      },
+      "revision": 1,
+      "contentType": {
+        "sys": { "type": "Link", "linkType": "ContentType", "id": "area" }
+      },
+      "locale": "ja"
+    },
+    "fields": { "name": "文京区", "slug": "文京区" }
+  },
+  {
+    "metadata": { "tags": [] },
+    "sys": {
+      "space": {
+        "sys": { "type": "Link", "linkType": "Space", "id": "hyexi1yqc2dw" }
+      },
+      "id": "5Hga7PhsB7cnWR0KKINIj2",
+      "type": "Entry",
+      "createdAt": "2021-07-18T10:02:33.791Z",
+      "updatedAt": "2021-07-18T10:02:33.791Z",
+      "environment": {
+        "sys": { "id": "master", "type": "Link", "linkType": "Environment" }
+      },
+      "revision": 1,
+      "contentType": {
+        "sys": { "type": "Link", "linkType": "ContentType", "id": "area" }
+      },
+      "locale": "ja"
+    },
+    "fields": { "name": "中央区", "slug": "中央区" }
+  },
+  {
+    "metadata": { "tags": [] },
+    "sys": {
+      "space": {
+        "sys": { "type": "Link", "linkType": "Space", "id": "hyexi1yqc2dw" }
+      },
+      "id": "2a24p8XQ01EXuyhCsuzGmA",
+      "type": "Entry",
+      "createdAt": "2021-07-18T10:02:33.625Z",
+      "updatedAt": "2021-07-18T10:02:33.625Z",
+      "environment": {
+        "sys": { "id": "master", "type": "Link", "linkType": "Environment" }
+      },
+      "revision": 1,
+      "contentType": {
+        "sys": { "type": "Link", "linkType": "ContentType", "id": "area" }
+      },
+      "locale": "ja"
+    },
+    "fields": { "name": "運営", "slug": "運営" }
+  },
+  {
+    "metadata": { "tags": [] },
+    "sys": {
+      "space": {
+        "sys": { "type": "Link", "linkType": "Space", "id": "hyexi1yqc2dw" }
+      },
+      "id": "3WmU08rfSbIz5uSU2AFwjM",
+      "type": "Entry",
+      "createdAt": "2021-07-18T10:02:33.559Z",
+      "updatedAt": "2021-07-18T10:02:33.559Z",
+      "environment": {
+        "sys": { "id": "master", "type": "Link", "linkType": "Environment" }
+      },
+      "revision": 1,
+      "contentType": {
+        "sys": { "type": "Link", "linkType": "ContentType", "id": "area" }
+      },
+      "locale": "ja"
+    },
+    "fields": { "name": "未分類", "slug": "未分類" }
+  },
+  {
+    "metadata": { "tags": [] },
+    "sys": {
+      "space": {
+        "sys": { "type": "Link", "linkType": "Space", "id": "hyexi1yqc2dw" }
+      },
+      "id": "1QQYBzMVZSeHmUBP4GPqSr",
+      "type": "Entry",
+      "createdAt": "2021-07-18T10:02:32.066Z",
+      "updatedAt": "2021-07-18T10:02:32.066Z",
+      "environment": {
+        "sys": { "id": "master", "type": "Link", "linkType": "Environment" }
+      },
+      "revision": 1,
+      "contentType": {
+        "sys": { "type": "Link", "linkType": "ContentType", "id": "area" }
+      },
+      "locale": "ja"
+    },
+    "fields": { "name": "目黒区", "slug": "目黒区" }
+  },
+  {
+    "metadata": { "tags": [] },
+    "sys": {
+      "space": {
+        "sys": { "type": "Link", "linkType": "Space", "id": "hyexi1yqc2dw" }
+      },
+      "id": "6Gm03xKyNAAytmbTXYP8bz",
+      "type": "Entry",
+      "createdAt": "2021-07-18T10:02:31.639Z",
+      "updatedAt": "2021-07-18T10:02:31.639Z",
+      "environment": {
+        "sys": { "id": "master", "type": "Link", "linkType": "Environment" }
+      },
+      "revision": 1,
+      "contentType": {
+        "sys": { "type": "Link", "linkType": "ContentType", "id": "area" }
+      },
+      "locale": "ja"
+    },
+    "fields": { "name": "江東区", "slug": "江東区" }
+  },
+  {
+    "metadata": { "tags": [] },
+    "sys": {
+      "space": {
+        "sys": { "type": "Link", "linkType": "Space", "id": "hyexi1yqc2dw" }
+      },
+      "id": "2gzAStfF7IgzcxEm0wjgk0",
+      "type": "Entry",
+      "createdAt": "2021-07-18T10:02:31.548Z",
+      "updatedAt": "2021-07-18T10:02:31.548Z",
+      "environment": {
+        "sys": { "id": "master", "type": "Link", "linkType": "Environment" }
+      },
+      "revision": 1,
+      "contentType": {
+        "sys": { "type": "Link", "linkType": "ContentType", "id": "area" }
+      },
+      "locale": "ja"
+    },
+    "fields": { "name": "港区", "slug": "港区" }
+  },
+  {
+    "metadata": { "tags": [] },
+    "sys": {
+      "space": {
+        "sys": { "type": "Link", "linkType": "Space", "id": "hyexi1yqc2dw" }
+      },
+      "id": "36Olao9EzOZvOafwRiUTej",
+      "type": "Entry",
+      "createdAt": "2021-07-18T10:02:31.542Z",
+      "updatedAt": "2021-07-18T10:02:31.542Z",
+      "environment": {
+        "sys": { "id": "master", "type": "Link", "linkType": "Environment" }
+      },
+      "revision": 1,
+      "contentType": {
+        "sys": { "type": "Link", "linkType": "ContentType", "id": "area" }
+      },
+      "locale": "ja"
+    },
+    "fields": { "name": "品川区", "slug": "品川区" }
+  },
+  {
+    "metadata": { "tags": [] },
+    "sys": {
+      "space": {
+        "sys": { "type": "Link", "linkType": "Space", "id": "hyexi1yqc2dw" }
+      },
+      "id": "6RU7yrSDNmq06tsYl6LKI7",
+      "type": "Entry",
+      "createdAt": "2021-07-18T10:02:30.195Z",
+      "updatedAt": "2021-07-18T10:02:30.195Z",
+      "environment": {
+        "sys": { "id": "master", "type": "Link", "linkType": "Environment" }
+      },
+      "revision": 1,
+      "contentType": {
+        "sys": { "type": "Link", "linkType": "ContentType", "id": "area" }
+      },
+      "locale": "ja"
+    },
+    "fields": { "name": "墨田区", "slug": "墨田区" }
+  },
+  {
+    "metadata": { "tags": [] },
+    "sys": {
+      "space": {
+        "sys": { "type": "Link", "linkType": "Space", "id": "hyexi1yqc2dw" }
+      },
+      "id": "4VyBZ7YZCAfV5VV94OXqgp",
+      "type": "Entry",
+      "createdAt": "2021-07-18T10:02:30.100Z",
+      "updatedAt": "2021-07-18T10:02:30.100Z",
+      "environment": {
+        "sys": { "id": "master", "type": "Link", "linkType": "Environment" }
+      },
+      "revision": 1,
+      "contentType": {
+        "sys": { "type": "Link", "linkType": "ContentType", "id": "area" }
+      },
+      "locale": "ja"
+    },
+    "fields": { "name": "世田谷区", "slug": "世田谷区" }
+  }
+]
