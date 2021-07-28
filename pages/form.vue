@@ -1,151 +1,34 @@
 <template>
-  <validation-observer
-    ref="observer"
-    v-slot="{ invalid }"
-  >
-    <form @submit.prevent="submit">
-      <validation-provider
-        v-slot="{ errors }"
-        name="Name"
-        rules="required|max:10"
-      >
-        <v-text-field
-          v-model="name"
-          :counter="10"
-          :error-messages="errors"
-          label="Name"
-          required
-        ></v-text-field>
-      </validation-provider>
-      <validation-provider
-        v-slot="{ errors }"
-        name="phoneNumber"
-        :rules="{
-          required: true,
-          digits: 7,
-          regex: '^(71|72|74|76|81|82|84|85|86|87|88|89)\\d{5}$'
-        }"
-      >
-        <v-text-field
-          v-model="phoneNumber"
-          :counter="7"
-          :error-messages="errors"
-          label="Phone Number"
-          required
-        ></v-text-field>
-      </validation-provider>
-      <validation-provider
-        v-slot="{ errors }"
-        name="email"
-        rules="required|email"
-      >
-        <v-text-field
-          v-model="email"
-          :error-messages="errors"
-          label="E-mail"
-          required
-        ></v-text-field>
-      </validation-provider>
-      <validation-provider
-        v-slot="{ errors }"
-        name="select"
-        rules="required"
-      >
-        <v-select
-          v-model="select"
-          :items="items"
-          :error-messages="errors"
-          label="Select"
-          data-vv-name="select"
-          required
-        ></v-select>
-      </validation-provider>
-      <validation-provider
-        v-slot="{ errors }"
-        rules="required"
-        name="checkbox"
-      >
-        <v-checkbox
-          v-model="checkbox"
-          :error-messages="errors"
-          value="1"
-          label="Option"
-          type="checkbox"
-          required
-        ></v-checkbox>
-      </validation-provider>
+ <div class="container">
+   <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSeLpGeKl_QLdY6lCSi4i27SfF7m89pLLmV-qCjjF91dOT_J1A/formResponse" target="dummy">
 
-      <v-btn
-        class="mr-4"
-        type="submit"
-        :disabled="invalid"
-      >
-        submit
-      </v-btn>
-      <v-btn @click="clear">
-        clear
-      </v-btn>
-    </form>
-  </validation-observer>
+     <label>投稿タイプ<br>
+       <input type="radio" name="entry.11364200" value="店舗情報提供">店舗情報提供<br>
+       <input type="radio" name="entry.11364200" value="削除依頼">削除依頼<br>
+       <input type="radio" name="entry.11364200" value="その他の問い合わせ">その他の問い合わせ<br>
+     </label><br><br>
+     <label>メールアドレス<br>
+       <input type="email" name="entry.1089278763" placeholder="sample@mail.co.jp">
+     </label><br><br>
+     <label>店舗情報<br>
+       <textarea name="entry.655204503" placeholder="店舗情報を記入してください。"></textarea>
+     </label><br><br>
+     <label>サイトURL<br>
+       <textarea name="entry.1251532293" placeholder="sample@sample.co.jp"></textarea>
+     </label><br><br>
+     <label>自由記入欄<br>
+       <textarea name="entry.725262329" placeholder="ああ自由にご記入ください"></textarea>
+     </label><br><br>
+     <button type="submit" name="button" value="送信" >送信！</button>
+   </form><br>
+   <iframe name="dummy" style="display:none;"></iframe>
+ </div>
 </template>
 
 <script>
-  import { required, digits, email, max, regex } from 'vee-validate/dist/rules'
-  import { extend, ValidationObserver, ValidationProvider, setInteractionMode } from 'vee-validate'
-
-  setInteractionMode('eager')
-  extend('digits', {
-    ...digits,
-    message: '{_field_} needs to be {length} digits. ({_value_})',
-  })
-  extend('required', {
-    ...required,
-    message: '{_field_} can not be empty',
-  })
-  extend('max', {
-    ...max,
-    message: '{_field_} may not be greater than {length} characters',
-  })
-  extend('regex', {
-    ...regex,
-    message: '{_field_} {_value_} does not match {regex}',
-  })
-  extend('email', {
-    ...email,
-    message: 'Email must be valid',
-  })
-
-  export default {
-    components: {
-      ValidationProvider,
-      ValidationObserver,
-    },
-    data: () => ({
-      name: '',
-      phoneNumber: '',
-      email: '',
-      select: null,
-      items: [
-        'Item 1',
-        'Item 2',
-        'Item 3',
-        'Item 4',
-      ],
-      checkbox: null,
-    }),
-    methods: {
-      submit () {
-        this.$refs.observer.validate()
-      },
-      clear () {
-        this.name = ''
-        this.phoneNumber = ''
-        this.email = ''
-        this.select = null
-        this.checkbox = null
-        this.$refs.observer.reset()
-      },
-    },
-  }
+export default { }
 </script>
+
+<style lang="scss" scoped>
+</style>
 
