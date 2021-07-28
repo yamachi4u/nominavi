@@ -5,11 +5,13 @@ export const state = () => ({
   drawer: false,
   areas: [],
   pubs: [],
+  heroImage: '',
 })
 
 export const mutations = {
   setDrawer: (state, payload) => (state.drawer = payload),
   toggleDrawer: state => state.drawer = !state.drawer,
+  setHeroImage: (state, heroImage) => state.heroImage = heroImage,
 }
 
 export const actions = {
@@ -30,5 +32,9 @@ export const actions = {
     state.areas = areas
     state.pubs = pubs
   }
+}
+
+export const getters = {
+  getHeroImage: (state) => state.heroImage,
 }
 
