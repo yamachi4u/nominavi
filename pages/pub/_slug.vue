@@ -1,7 +1,7 @@
 <template>
   <section class="slug">
     <v-img
-      :lazy-src="item.fields.image.fields.file.url"
+      :lazy-src="item.fields.imgUrl"
     ></v-img>
     <v-card
       outlined
@@ -64,6 +64,9 @@ export default {
     return await createClient()
       .getEntry(params.slug)
       .then(entry => {
+        if(entry.fields.image){
+        entry.fields.imgUrl = image.fields.file.url
+        }
         return {
           item: entry
         }

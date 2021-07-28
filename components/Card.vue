@@ -11,7 +11,7 @@
           size="150"
           tile
         >
-          <v-img :src="image.fields.file.url"></v-img>
+          <v-img :src="image"></v-img>
         </v-avatar>
         <div>
           <v-card-title
@@ -64,7 +64,7 @@ export default {
       default: ''
     },
     image: {
-      type: Object,
+      type: String,
       default: ''
     }
   }
