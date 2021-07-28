@@ -17,7 +17,7 @@
                 outlined
                 hide-details
                 v-model="area_station"
-                prepend-inner-icon="mdi-magnify"
+                prepend-inner-icon="mdi-map-marker-outline"
                 clearable
                 clear-icon="mdi-close-circle"
               ></v-text-field>
@@ -30,7 +30,7 @@
                 outlined
                 hide-details
                 v-model="genre"
-                prepend-inner-icon="mdi-magnify"
+                prepend-inner-icon="mdi-food-variant"
                 clear-icon="mdi-close-circle"
                 clearable
               />
@@ -43,7 +43,7 @@
                 outlined
                 hide-details
                 v-model="free_word"
-                prepend-inner-icon="mdi-magnify"
+                prepend-inner-icon="mdi-store"
                 clear-icon="mdi-close-circle"
                 clearable
               />
