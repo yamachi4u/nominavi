@@ -5,7 +5,13 @@
     <core-drawer />
 
     <v-main>
-      <v-container>
+      <v-parallax
+        height="300"
+        :src="heroImage"
+      ></v-parallax>
+      <v-container
+        class="my-n16"
+      >
         <v-row>
           <v-col>
             <v-container>
@@ -20,3 +26,12 @@
   </v-app>
 </template>
 
+<script>
+export default {
+  computed: {
+    heroImage() {
+      return this.$store.getters['getHeroImage']
+    }
+  }
+}
+</script>

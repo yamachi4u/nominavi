@@ -17,8 +17,8 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - antabe',
-    title: 'antabe',
+    titleTemplate: '%s - 飲みナビ',
+    title: '飲みナビ - お酒が飲めるお店を探そう',
     htmlAttrs: {
       lang: 'ja'
     },
@@ -59,6 +59,15 @@ export default {
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     theme: {
+      themes: {
+        light: {
+          primary: "#f08700",
+          secondary: "#efca08",
+          accent: "#00a6a6",
+          error: "#bbdef0",
+          background: "#eff0f3",
+        },
+      }
     }
   },
 

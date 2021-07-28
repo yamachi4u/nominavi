@@ -3,40 +3,29 @@
     ref="observer"
     v-slot="{ invalid }"
   >
-    <form @submit.prevent="submit">
+    <form name="postForm" @submit.prevent="submit"
+    action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSeLpGeKl_QLdY6lCSi4i27SfF7m89pLLmV-qCjjF91dOT_J1A/formResponse"　method="POST" >
+
+    <validation-provider
+      v-slot="{ errors }"
+      name="投稿タイプ"
+      rules="required"
+    >
+      <v-select
+        v-model="type"
+        :items="items"
+        :error-messages="errors"
+        label="投稿タイプ"
+        data-vv-name="type"
+        required
+        name="entry.11364200"
+      ></v-select>
+    </validation-provider>
+
+
       <validation-provider
         v-slot="{ errors }"
-        name="Name"
-        rules="required|max:10"
-      >
-        <v-text-field
-          v-model="name"
-          :counter="10"
-          :error-messages="errors"
-          label="Name"
-          required
-        ></v-text-field>
-      </validation-provider>
-      <validation-provider
-        v-slot="{ errors }"
-        name="phoneNumber"
-        :rules="{
-          required: true,
-          digits: 7,
-          regex: '^(71|72|74|76|81|82|84|85|86|87|88|89)\\d{5}$'
-        }"
-      >
-        <v-text-field
-          v-model="phoneNumber"
-          :counter="7"
-          :error-messages="errors"
-          label="Phone Number"
-          required
-        ></v-text-field>
-      </validation-provider>
-      <validation-provider
-        v-slot="{ errors }"
-        name="email"
+        name="メールアドレス"
         rules="required|email"
       >
         <v-text-field
@@ -44,47 +33,64 @@
           :error-messages="errors"
           label="E-mail"
           required
+          name="entry.1089278763"
         ></v-text-field>
       </validation-provider>
+
       <validation-provider
         v-slot="{ errors }"
-        name="select"
+        name="店舗情報"
         rules="required"
       >
-        <v-select
-          v-model="select"
-          :items="items"
+        <v-text-field
+          v-model="shopInfo"
           :error-messages="errors"
-          label="Select"
-          data-vv-name="select"
+          label="店舗情報"
           required
-        ></v-select>
+          name="entry.655204503"
+        ></v-text-field>
       </validation-provider>
+
       <validation-provider
         v-slot="{ errors }"
+        name="サイトURL"
         rules="required"
-        name="checkbox"
       >
-        <v-checkbox
-          v-model="checkbox"
+        <v-text-field
+          v-model="siteUrl"
           :error-messages="errors"
-          value="1"
-          label="Option"
-          type="checkbox"
+          label="サイトURL"
           required
-        ></v-checkbox>
+          name="entry.1251532293"
+        ></v-text-field>
       </validation-provider>
+
+      <validation-provider
+        v-slot="{ errors }"
+        name="other"
+      >
+        <v-text-field
+          v-model="other"
+          :error-messages="errors"
+          label="その他の情報"
+          required
+          name="entry.725262329"
+        ></v-text-field>
+      </validation-provider>
+
 
       <v-btn
         class="mr-4"
         type="submit"
         :disabled="invalid"
       >
-        submit
+        投稿する
       </v-btn>
       <v-btn @click="clear">
-        clear
+        書き直す
       </v-btn>
+
+
     </form>
   </validation-observer>
 </template>
@@ -92,7 +98,6 @@
 <script>
   import { required, digits, email, max, regex } from 'vee-validate/dist/rules'
   import { extend, ValidationObserver, ValidationProvider, setInteractionMode } from 'vee-validate'
-
   setInteractionMode('eager')
   extend('digits', {
     ...digits,
@@ -100,7 +105,7 @@
   })
   extend('required', {
     ...required,
-    message: '{_field_} can not be empty',
+    message: '{_field_} は必ず入力して下さい。',
   })
   extend('max', {
     ...max,
@@ -114,35 +119,36 @@
     ...email,
     message: 'Email must be valid',
   })
-
   export default {
     components: {
       ValidationProvider,
       ValidationObserver,
     },
     data: () => ({
-      name: '',
-      phoneNumber: '',
       email: '',
-      select: null,
+      type: null,
       items: [
-        'Item 1',
-        'Item 2',
-        'Item 3',
-        'Item 4',
+        '店舗情報提供',
+        '削除依頼',
+        'その他の問い合わせ',
       ],
       checkbox: null,
+      shopInfo: null,
+      siteUrl:null,
     }),
     methods: {
       submit () {
         this.$refs.observer.validate()
+        document.postForm.submit();
+        this.$router.push('thanks')
+
       },
       clear () {
-        this.name = ''
-        this.phoneNumber = ''
         this.email = ''
-        this.select = null
-        this.checkbox = null
+        this.type = null
+        this.shopInfo = null
+        this.siteUrl = null
+        this.other = null
         this.$refs.observer.reset()
       },
     },
