@@ -65,6 +65,7 @@ export default {
           secondary: "#efca08",
           accent: "#00a6a6",
           error: "#bbdef0",
+          background: "#eff0f3",
         },
       }
     }
