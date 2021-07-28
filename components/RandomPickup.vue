@@ -26,7 +26,7 @@ export default {
     const random = shuffle(pubs).slice(0, 3)
     random.map((item)=> {
       if(item.fields.image){
-        item.fields.imgUrl = image.fields.file.url
+        item.fields.imgUrl = item.image.fields.file.url
       }
     })
     return {

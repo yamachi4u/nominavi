@@ -65,7 +65,7 @@ export default {
       .getEntry(params.slug)
       .then(entry => {
         if(entry.fields.image){
-        entry.fields.imgUrl = image.fields.file.url
+        entry.fields.imgUrl = entry.fields.image.fields.file.url
         }
         return {
           item: entry

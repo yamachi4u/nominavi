@@ -34,7 +34,7 @@
             :id="pub.sys.id"
             :phone_number="pub.fields.phoneNumber"
             :link="pub.fields.link"
-            :image="pub.fields.image"
+            :image="pub.fields.imgUrl"
           />
         </template>
         <template v-else>
@@ -98,7 +98,14 @@ export default {
           content_type: CONSTANTS.CTF_PUB_TYPE_ID,
           query: this.query
         })
-          .then(({ items }) => (this.pubs = items))
+          .then(({ items }) => {
+            items.map((item)=> {
+              if(item.fields.image){
+                item.fields.imgUrl = item.image.fields.file.url
+              }
+            });
+            this.pubs = items
+          })
           .catch(console.error)
         this.loading = false
 

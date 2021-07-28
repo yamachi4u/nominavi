@@ -8,7 +8,7 @@
         :id="pub.sys.id"
         :phone_number="pub.fields.phoneNumber"
         :link="pub.fields.link"
-        :image="pub.fields.image"
+        :image="pub.fields.imgUrl"
       />
       <v-pagination
         class="mx-auto"
@@ -33,7 +33,13 @@ export default {
         "fields.area.sys.contentType.sys.id": "area",
         "fields.area.fields.slug": params.slug
       })
-    ).items
+    ).items.map((item)=> {
+              if(item.fields.image){
+                console.log(item.fields.image)
+                item.fields.imgUrl = item.fields.image.fields.file.url
+              }
+              return item;
+            });
 
     const length = Math.ceil(pubs.length / CONSTANTS.PUBS_PER_PAGE)
 
