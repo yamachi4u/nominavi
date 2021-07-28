@@ -8,17 +8,31 @@
       @click="toggleDrawer"
     />
 
+    <NuxtLink
+      class="hidden-md-and-up"
+      to="/"
+    >
+      <img
+        :src="require('@/assets/logo/nominavi.png')"
+        alt=""
+        height="28"
+        align="center"
+      >
+    </NuxtLink>
+
     <v-container class="mx-auto py-0">
       <v-row align="center">
         <div
           class="hidden-sm-and-down"
         >
-          <v-btn
-            text
-            to="/"
-          >
-            ホーム
-          </v-btn>
+          <NuxtLink to="/">
+            <img
+              :src="require('@/assets/logo/nominavi.png')"
+              alt=""
+              height="28"
+              align="center"
+            >
+          </NuxtLink>
           <v-menu
             offset-y
             open-on-hover
