@@ -5,10 +5,10 @@
     <core-drawer />
 
     <v-main>
-      <v-parallax
+      <v-img
         height="300"
         :src="heroImage"
-      ></v-parallax>
+      ></v-img>
       <v-container
         v-bind:style="{ marginTop: margin, marginBottom: margin }"
       >
