@@ -1,7 +1,7 @@
 <template>
   <section class="index">
     <Search />
-    <v-container
+    <section
       id="about"
       class="my-10"
     >
@@ -9,11 +9,11 @@
         当サイトについて
       </h2>
       <div v-html="toHtmlString(about)"></div>
-    </v-container>
+    </section>
     <RandomPickup />
-    <v-container>
+    <section>
       <div v-html="toHtmlString(seeking)"></div>
-    </v-container>
+    </section>
   </section>
 </template>
 

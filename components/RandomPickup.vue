@@ -1,21 +1,19 @@
 <template>
   <section>
-    <v-container>
-      <h1>
-        ランダムピックアップ
-      </h1>
-      <v-row dense>
-        <card
-          v-for="(pub, i) in pubs"
-          :key="i"
-          :name="pub.fields.name"
-          :id="pub.sys.id"
-          :phone_number="pub.fields.phoneNumber"
-          :link="pub.fields.link"
-          :image="pub.fields.imgUrl"
-        />
-      </v-row>
-    </v-container>
+    <h1>
+      ランダムピックアップ
+    </h1>
+    <v-row dense>
+      <card
+        v-for="(pub, i) in pubs"
+        :key="i"
+        :name="pub.fields.name"
+        :id="pub.sys.id"
+        :phone_number="pub.fields.phoneNumber"
+        :link="pub.fields.link"
+        :image="pub.fields.imgUrl"
+      />
+    </v-row>
   </section>
 </template>
 

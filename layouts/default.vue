@@ -6,13 +6,7 @@
 
     <v-main>
       <v-container>
-        <v-row>
-          <v-col>
-            <v-container>
-              <Nuxt />
-            </v-container>
-          </v-col>
-        </v-row>
+        <Nuxt />
       </v-container>
     </v-main>
 
