@@ -30,6 +30,24 @@
         </v-list-item-title>
       </v-list-item>
 
+      <v-divider ></v-divider>
+
+      <v-list-item
+        to="/privacypolicy"
+      >
+        <v-list-item-title>
+          プライバシーポリシー
+        </v-list-item-title>
+      </v-list-item>
+
+      <v-list-item
+        to="twitter"
+      >
+        <v-list-item-title>
+          Twitterアカウント
+        </v-list-item-title>
+      </v-list-item>
+
     </v-list>
   </v-navigation-drawer>
 </template>

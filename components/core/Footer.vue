@@ -3,11 +3,25 @@
     color="background"
   >
     <v-container>
-      <v-row
-        justify="center"
-      >
-        <NuxtLink to="/privacypolicy">プライバシーポリシー</NuxtLink>
-        <a href="twitter">twitterアカウント</a>
+      <v-row>
+        <v-btn
+          text
+          to="/"
+        >
+          ホーム
+        </v-btn>
+        <v-btn
+          text
+          to="/privacypolicy"
+        >
+          プライバシーポリシー
+        </v-btn>
+        <v-btn
+          text
+          to="twitter"
+        >
+          twitterアカウント
+        </v-btn>
       </v-row>
       <v-btn
         fab
@@ -21,3 +35,12 @@
   </v-footer>
 </template>
 
+<style scoped>
+.v-btn--active::before {
+  opacity: 0 !important;
+}
+
+.v-btn--active:hover::before {
+  opacity: 0.13 !important;
+}
+</style>
