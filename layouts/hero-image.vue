@@ -4,9 +4,11 @@
 
     <core-drawer />
 
-    <v-main>
+    <v-main
+      class="py-0"
+    >
       <v-img
-        height="300"
+        height="360"
         :src="heroImage"
       ></v-img>
       <v-container

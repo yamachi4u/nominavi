@@ -2,6 +2,7 @@
   <v-app-bar
     app
     flat
+    dark
   >
     <v-app-bar-nav-icon
       class="hidden-md-and-up"
@@ -64,6 +65,10 @@ export default {
 </script>
 
 <style scoped>
+header {
+  background-color: rgba(0, 0, 0, 0.7) !important;
+}
+
 .v-btn--active::before {
   opacity: 0 !important;
 }

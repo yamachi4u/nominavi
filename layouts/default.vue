@@ -4,7 +4,9 @@
 
     <core-drawer />
 
-    <v-main>
+    <v-main
+      class="py-0"
+    >
       <v-container>
         <Nuxt />
       </v-container>
