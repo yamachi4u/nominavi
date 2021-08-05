@@ -14,22 +14,6 @@
         </v-list-item-title>
       </v-list-item>
 
-      <v-list-group
-        no-action
-      >
-        <template v-slot:activator>
-          <v-list-item-title>エリア</v-list-item-title>
-        </template>
-
-        <v-list-item
-          v-for="(area, index) in $store.state.areas"
-          :key="index"
-          :to="'/area/'+area.fields.slug"
-        >
-          <v-list-item-title>{{ area.fields.name }}</v-list-item-title>
-        </v-list-item>
-      </v-list-group>
-
       <v-list-item
         to="/form"
       >
