@@ -1,10 +1,13 @@
 <template>
   <section class="index">
     <Search />
-    <v-container>
-      <h1>
-        ABOUT
-      </h1>
+    <v-container
+      id="about"
+      class="my-10"
+    >
+      <h2>
+        当サイトについて
+      </h2>
       <div v-html="toHtmlString(about)"></div>
     </v-container>
     <RandomPickup />
