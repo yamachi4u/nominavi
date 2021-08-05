@@ -10,7 +10,7 @@
         :src="heroImage"
       ></v-parallax>
       <v-container
-        class="my-n16"
+        v-bind:style="{ marginTop: margin, marginBottom: margin }"
       >
         <Nuxt />
       </v-container>
@@ -25,7 +25,15 @@ export default {
   computed: {
     heroImage() {
       return this.$store.getters['getHeroImage']
-    }
+    },
+    margin () {
+      if (this.$vuetify.breakpoint.smAndDown) {
+        return "-128px"
+      } else {
+        return "-64px"
+      }
+    },
   }
 }
 </script>
+
