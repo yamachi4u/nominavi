@@ -18,7 +18,7 @@ export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     titleTemplate: '%s - 飲みナビ',
-    title: '飲みナビ - お酒が飲めるお店を探そう',
+    title: '飲みナビ - お酒が飲めるお店が見つかる',
     htmlAttrs: {
       lang: 'ja'
     },

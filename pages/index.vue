@@ -25,6 +25,13 @@ import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
 export default {
   layout: 'hero-image',
 
+  head() {
+    return {
+      title: '飲みナビ - お酒が飲めるお店が見つかる',
+      titleTemplate: '',
+    }
+  },
+
   async asyncData({ store }) {
     return await createClient()
       .getEntries({

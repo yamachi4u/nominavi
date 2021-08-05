@@ -1,37 +1,50 @@
 <template>
-  <v-app-bar
-    app
-    flat
-    dark
-  >
-    <v-app-bar-nav-icon
+  <section>
+    <v-app-bar
+      app
+      flat
+      dark
       class="hidden-md-and-up"
-      @click="toggleDrawer"
-    />
-
-    <NuxtLink
-      class="hidden-md-and-up"
-      to="/"
     >
-      <img
-        :src="require('@/assets/logo/nominavi.png')"
-        alt=""
-        height="28"
-        align="center"
+      <v-app-bar-nav-icon
+        @click="toggleDrawer"
+      />
+      <NuxtLink
+        to="/"
       >
-    </NuxtLink>
-
-    <v-container class="mx-auto py-0">
-      <v-row align="center">
-        <div
-          class="hidden-sm-and-down"
+        <img
+          :src="require('@/assets/logo/nominavi.png')"
+          alt=""
+          height="36"
+          align="center"
+          class="mr-4"
         >
+      </NuxtLink>
+      <span
+        class="subtitle body-2"
+      >
+        お酒が飲めるお店が見つかる
+      </span>
+    </v-app-bar>
+    <v-app-bar
+      app
+      flat
+      dark
+      height="88"
+      class="hidden-sm-and-down mx-auto py-0"
+    >
+      <v-container>
+        <v-row>
+          <span class="subtitle body-2">お酒が飲めるお店が見つかる</span>
+        </v-row>
+        <v-row align="center">
           <NuxtLink to="/">
             <img
               :src="require('@/assets/logo/nominavi.png')"
               alt=""
-              height="28"
+              height="48"
               align="center"
+              class="mx-3"
             >
           </NuxtLink>
           <v-btn
@@ -46,10 +59,10 @@
           >
             情報提供のお願い
           </v-btn>
-        </div>
-      </v-row>
-    </v-container>
-  </v-app-bar>
+        </v-row>
+      </v-container>
+    </v-app-bar>
+  </section>
 </template>
 
 <script>
@@ -67,6 +80,10 @@ export default {
 <style scoped>
 header {
   background-color: rgba(0, 0, 0, 0.7) !important;
+}
+
+.subtitle {
+  color: #DCDCDC;
 }
 
 .v-btn--active::before {

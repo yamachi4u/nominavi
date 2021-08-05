@@ -10,7 +10,7 @@
       <v-img
         height="360"
         :src="heroImage"
-      ></v-img>
+      />
       <v-container
         v-bind:style="{ marginTop: margin }"
       >
