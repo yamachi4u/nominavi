@@ -8,9 +8,12 @@
         <v-form>
           <v-row
             dense
+            class="pt-5"
           >
             <v-col
-              class="mt-8 ml-8"
+              class="
+                px-5 col-12
+                pl-sm-8 pr-sm-1 col-sm-4"
             >
               <v-text-field
                 label="エリア・駅"
@@ -23,7 +26,9 @@
               ></v-text-field>
             </v-col>
             <v-col
-              class="mt-8"
+              class="
+                px-5 col-12
+                px-sm-1 col-sm-4"
             >
               <v-text-field
                 label="ジャンル"
@@ -36,7 +41,9 @@
               />
             </v-col>
             <v-col
-              class="mt-8 mr-8"
+              class="
+                px-5 col-12
+                pl-sm-1 pr-sm-8 col-sm-4"
             >
               <v-text-field
                 label="店名"
