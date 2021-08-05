@@ -15,10 +15,18 @@
       </v-list-item>
 
       <v-list-item
+        to="/about"
+      >
+        <v-list-item-title>
+          当サイトについて
+        </v-list-item-title>
+      </v-list-item>
+
+      <v-list-item
         to="/form"
       >
         <v-list-item-title>
-          情報提供
+          情報提供のお願い
         </v-list-item-title>
       </v-list-item>
 

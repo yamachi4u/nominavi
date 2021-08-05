@@ -36,7 +36,7 @@
           </NuxtLink>
           <v-btn
             text
-            to="/#about"
+            to="/about"
           >
             当サイトについて
           </v-btn>
@@ -44,7 +44,7 @@
             text
             to="/form"
           >
-            情報提供
+            情報提供のお願い
           </v-btn>
         </div>
       </v-row>
