@@ -33,29 +33,12 @@
               align="center"
             >
           </NuxtLink>
-          <v-menu
-            offset-y
-            open-on-hover
+          <v-btn
+            text
+            to="/#about"
           >
-            <template v-slot:activator="{ on, attrs }">
-              <v-btn
-                text
-                v-bind="attrs"
-                v-on="on"
-              >
-                エリア
-              </v-btn>
-            </template>
-            <v-list>
-              <v-list-item
-                v-for="(area, index) in $store.state.areas"
-                :key="index"
-                :to="'/area/'+area.fields.slug"
-              >
-                <v-list-item-title>{{ area.fields.name }}</v-list-item-title>
-              </v-list-item>
-            </v-list>
-          </v-menu>
+            当サイトについて
+          </v-btn>
           <v-btn
             text
             to="/form"
@@ -63,10 +46,6 @@
             情報提供
           </v-btn>
         </div>
-
-        <v-spacer />
-
-        <search-form />
       </v-row>
     </v-container>
   </v-app-bar>
