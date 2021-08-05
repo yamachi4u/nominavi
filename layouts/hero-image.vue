@@ -12,7 +12,7 @@
         :src="heroImage"
       ></v-img>
       <v-container
-        v-bind:style="{ marginTop: margin, marginBottom: margin }"
+        v-bind:style="{ marginTop: margin }"
       >
         <Nuxt />
       </v-container>
