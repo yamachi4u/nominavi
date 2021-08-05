@@ -1,9 +1,10 @@
 <template>
+
   <validation-observer
     ref="observer"
     v-slot="{ invalid }"
   >
-    <form name="postForm" @submit.prevent="submit"
+    <form name="postForm" @submit.prevent="submit" target="dummy"
     action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSeLpGeKl_QLdY6lCSi4i27SfF7m89pLLmV-qCjjF91dOT_J1A/formResponse"　method="POST" >
 
     <validation-provider
@@ -86,16 +87,22 @@
       >
         投稿する
       </v-btn>
+
       <v-btn @click="clear">
         書き直す
       </v-btn>
 
-
     </form>
+
+    <iframe id="dummyiframe" name="dummy" style="display:none;"  ></iframe>
+
   </validation-observer>
+
+
 </template>
 
 <script>
+
   import { required, digits, email, max, regex } from 'vee-validate/dist/rules'
   import { extend, ValidationObserver, ValidationProvider, setInteractionMode } from 'vee-validate'
   setInteractionMode('eager')
@@ -140,8 +147,8 @@
       submit () {
         this.$refs.observer.validate()
         document.postForm.submit();
-        this.$router.push('thanks')
-
+        alert("送信完了しました！");
+        location.href = './';
       },
       clear () {
         this.email = ''
@@ -151,7 +158,20 @@
         this.other = null
         this.$refs.observer.reset()
       },
+
     },
   }
+
+  const wait = (sec) => {
+    return new Promise((resolve, reject) => {
+      setTimeout(resolve, sec*1000);
+      //setTimeout(() => {reject(new Error("エラー！"))}, sec*1000);
+    });
+  };
+
 </script>
 
+<style>
+
+
+</style>

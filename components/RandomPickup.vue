@@ -12,7 +12,7 @@
           :id="pub.sys.id"
           :phone_number="pub.fields.phoneNumber"
           :link="pub.fields.link"
-          :image="pub.fields.image"
+          :image="pub.fields.imgUrl"
         />
       </v-row>
     </v-container>
@@ -24,7 +24,11 @@ export default {
   data() {
     const pubs = this.$store.state.pubs
     const random = shuffle(pubs).slice(0, 3)
-
+    random.map((item)=> {
+      if(item.fields.image){
+        item.fields.imgUrl = item.image.fields.file.url
+      }
+    })
     return {
       pubs: random
     }
