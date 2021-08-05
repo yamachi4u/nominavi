@@ -5,6 +5,7 @@ export const state = () => ({
   drawer: false,
   areas: [],
   pubs: [],
+  genres: [],
   heroImage: '',
 })
 
@@ -29,8 +30,15 @@ export const actions = {
     }))
     .items
 
+    const genres = (await createClient().
+      getEntries({
+        content_type: CONSTANTS.CTF_GENRE_TYPE_ID,
+    }))
+    .items
+
     state.areas = areas
     state.pubs = pubs
+    state.genres = genres
   }
 }
 
