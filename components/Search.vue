@@ -111,7 +111,7 @@ export default {
       free_word: this.$route.query.free,
       genres: genres,
       areas: areas,
-      menuMaxHeight: this.$vuetify.breakpoint.xsOnly ? 186 : 304,
+      menuMaxHeight: this.$vuetify.breakpoint.smAndDown ? 186 : 304,
     }
   },
   methods: {
