@@ -26,6 +26,7 @@
                 clear-icon="mdi-close-circle"
                 item-text="name"
                 item-value="name"
+                :menu-props="{ maxHeight: menuMaxHeight }"
               >
                 <template v-slot:item="data">
                   <v-list-item-content>
@@ -49,6 +50,7 @@
                 prepend-inner-icon="mdi-food-variant"
                 clear-icon="mdi-close-circle"
                 clearable
+                :menu-props="{ maxHeight: menuMaxHeight }"
               />
             </v-col>
             <v-col
@@ -109,6 +111,7 @@ export default {
       free_word: this.$route.query.free,
       genres: genres,
       areas: areas,
+      menuMaxHeight: this.$vuetify.breakpoint.xsOnly ? 186 : 304,
     }
   },
   methods: {
