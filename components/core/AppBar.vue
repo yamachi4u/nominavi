@@ -7,7 +7,7 @@
       class="hidden-md-and-up"
     >
       <v-app-bar-nav-icon
-        @click="toggleDrawer"
+        @click="openDrawer"
       />
       <NuxtLink
         to="/"
@@ -72,7 +72,7 @@ import {
 
 export default {
   methods: {
-    ...mapMutations(['toggleDrawer']),
+    ...mapMutations(['openDrawer']),
   },
 }
 </script>

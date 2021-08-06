@@ -15,7 +15,8 @@ export const state = () => ({
 
 export const mutations = {
   setDrawer: (state, payload) => (state.drawer = payload),
-  toggleDrawer: state => state.drawer = !state.drawer,
+  closeDrawer: state => state.drawer = false,
+  openDrawer: state => state.drawer = true,
   setHeroImage: (state, heroImage) => state.heroImage = heroImage,
   areaFromStation: station =>
     Object.keys(state.areaStationMapping)

@@ -5,57 +5,61 @@
     temporary
   >
     <v-list>
-
-      <v-list-item
-        to="/"
+      <v-list-item-group
+        v-model="group"
       >
-        <v-list-item-title>
-          ホーム
-        </v-list-item-title>
-      </v-list-item>
 
-      <v-list-item
-        to="/about"
-      >
-        <v-list-item-title>
-          当サイトについて
-        </v-list-item-title>
-      </v-list-item>
+        <v-list-item
+          to="/"
+        >
+          <v-list-item-title>
+            ホーム
+          </v-list-item-title>
+        </v-list-item>
 
-      <v-list-item
-        to="/form"
-      >
-        <v-list-item-title>
-          情報提供のお願い
-        </v-list-item-title>
-      </v-list-item>
+        <v-list-item
+          to="/about"
+        >
+          <v-list-item-title>
+            当サイトについて
+          </v-list-item-title>
+        </v-list-item>
 
-      <v-divider ></v-divider>
+        <v-list-item
+          to="/form"
+        >
+          <v-list-item-title>
+            情報提供のお願い
+          </v-list-item-title>
+        </v-list-item>
 
-      <v-list-item
-        to="/privacy-policy"
-      >
-        <v-list-item-title>
-          プライバシーポリシー
-        </v-list-item-title>
-      </v-list-item>
+        <v-divider ></v-divider>
 
-      <v-list-item
-        to="twitter"
-      >
-        <v-list-item-title>
-          Twitterアカウント
-        </v-list-item-title>
-      </v-list-item>
+        <v-list-item
+          to="/privacy-policy"
+        >
+          <v-list-item-title>
+            プライバシーポリシー
+          </v-list-item-title>
+        </v-list-item>
 
-      <v-list-item
-        to="/for-owners"
-      >
-        <v-list-item-title>
-          店舗運営者の方へ
-        </v-list-item-title>
-      </v-list-item>
+        <v-list-item
+          to="twitter"
+        >
+          <v-list-item-title>
+            Twitterアカウント
+          </v-list-item-title>
+        </v-list-item>
 
+        <v-list-item
+          to="/for-owners"
+        >
+          <v-list-item-title>
+            店舗運営者の方へ
+          </v-list-item-title>
+        </v-list-item>
+
+      </v-list-item-group>
     </v-list>
   </v-navigation-drawer>
 </template>
@@ -66,6 +70,12 @@ import {
 } from 'vuex'
 
 export default {
+  data() {
+    return {
+      group: null,
+    }
+  },
+
   computed: {
     drawer: {
       get () {
@@ -78,7 +88,13 @@ export default {
   },
 
   methods: {
-    ...mapMutations(['setDrawer']),
+    ...mapMutations(['setDrawer', 'closeDrawer']),
+  },
+
+  watch: {
+    group () {
+      this.closeDrawer()
+    },
   },
 }
 </script>
