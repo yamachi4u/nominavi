@@ -80,12 +80,14 @@ export default {
       end: 0,
     }
   },
+
   computed: {
     isRequired() {
       return !!this.query &&
         (!/^\s+$/.test(this.query.area) || !/^\s+$/.test(this.query.genre) || !/^\s+$/.test(this.query.free))
     }
   },
+
   watch: {
     '$route.query': {
       handler(newVal) {
@@ -95,6 +97,7 @@ export default {
       immediate: true
     }
   },
+
   methods: {
     async getPubs() {
       if (this.isRequired) {
@@ -104,17 +107,14 @@ export default {
           content_type: CONSTANTS.CTF_PUB_TYPE_ID,
           "fields.tags.sys.contentType.sys.id": "tag",
           "fields.tags.fields.name": this.query.genre,
-          "fields.area.sys.contentType.sys.id": "area",
-          "fields.area.fields.name": this.query.area,
           query: this.query.free,
         })
           .then(({ items }) => {
-            items.map((item)=> {
-              if(item.fields.image){
-                item.fields.imgUrl = item.image.fields.file.url
-              }
-            });
-            this.pubs = items
+            this.pubs = items.filter(item => {
+              const nearestStation = item.fields.nearestStation
+                || (item.fields.access && item.fields.access.match(/^.*駅/) && item.fields.access.match(/^.*駅/)[0])
+              return this.areaMatch(this.query.area, nearestStation)
+            })
           })
           .catch(console.error)
         this.loading = false
@@ -127,12 +127,28 @@ export default {
         this.end = Math.min(CONSTANTS.PUBS_PER_PAGE, this.pubs.length)
       }
     },
+
+    /*
+     * エリア・駅で選択されたものと店舗データの最寄り駅が一致するかどうか
+     * エリア・駅が空だったらtrueを返す
+     */
+    areaMatch: function(area, nearestStation) {
+      return !area
+        || area === nearestStation
+        || area === this.getAreaOf(nearestStation)
+    },
+
+    getAreaOf: function(station) {
+      const areas = Object.keys(this.$store.state.areaStationMapping)
+      return areas.filter(key => this.$store.state.areaStationMapping[key].includes(station))[0]
+    },
+
     pageChange: function(pageNumber) {
       this.start = CONSTANTS.PUBS_PER_PAGE * (pageNumber - 1)
       this.end = Math.min(CONSTANTS.PUBS_PER_PAGE * pageNumber, this.pubs.length)
       this.displayPubs = this.pubs.slice(this.start, this.end)
       this.$vuetify.goTo("#result")
-    }
+    },
   },
 }
 </script>

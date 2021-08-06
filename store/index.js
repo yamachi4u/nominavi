@@ -18,9 +18,6 @@ export const mutations = {
   closeDrawer: state => state.drawer = false,
   openDrawer: state => state.drawer = true,
   setHeroImage: (state, heroImage) => state.heroImage = heroImage,
-  areaFromStation: station =>
-    Object.keys(state.areaStationMapping)
-      .filter(key => state.areaStationMapping[key] == station)
 }
 
 export const actions = {
