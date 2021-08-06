@@ -24,7 +24,16 @@
                 prepend-inner-icon="mdi-map-marker-outline"
                 clearable
                 clear-icon="mdi-close-circle"
-              />
+                item-text="name"
+                item-value="name"
+              >
+                <template v-slot:item="data">
+                  <v-list-item-content>
+                    <v-list-item-title v-html="data.item.name"></v-list-item-title>
+                    <v-list-item-subtitle v-html="data.item.group"></v-list-item-subtitle>
+                  </v-list-item-content>
+                </template>
+              </v-autocomplete>
             </v-col>
             <v-col
               class="
@@ -84,7 +93,15 @@
 export default {
   data() {
     const genres = this.$store.state.genres.map(x => x.fields.name)
-    const areas = this.$store.state.areas.map(x => x.fields.name)
+    const areas = (function(state) {
+      let candidates = state.areas.map(area => ({ name: area, group: 'エリア' }))
+
+      candidates.push({ divider: true })
+
+      candidates = candidates.concat(state.stations.map(station => ({ name: station })))
+
+      return candidates
+    })(this.$store.state)
 
     return {
       area_station: this.$route.query.area,
@@ -98,6 +115,6 @@ export default {
     submit() {
       this.$router.push({ path: '/search', query: { area: this.area_station, genre: this.genre, free: this.free_word } })
     },
-  }
+  },
 }
 </script>

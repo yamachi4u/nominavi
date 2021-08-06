@@ -1,11 +1,15 @@
 import CONSTANTS from '~/lib/constants.js'
 import { createClient } from '~/plugins/contentful.js'
+import areaTree from '~/assets/area-tree.json'
 
 export const state = () => ({
   drawer: false,
   areas: [],
+  stations: [],
   pubs: [],
   genres: [],
+  areaStationMapping: {},
+  subArea: {},
   heroImage: '',
 })
 
@@ -13,32 +17,39 @@ export const mutations = {
   setDrawer: (state, payload) => (state.drawer = payload),
   toggleDrawer: state => state.drawer = !state.drawer,
   setHeroImage: (state, heroImage) => state.heroImage = heroImage,
+  areaFromStation: station =>
+    Object.keys(state.areaStationMapping)
+      .filter(key => state.areaStationMapping[key] == station)
 }
 
 export const actions = {
   async nuxtServerInit ({ state }) {
-    const areas = (await createClient().
-      getEntries({
-        content_type: CONSTANTS.CTF_AREA_TYPE_ID,
-        order: "-sys.createdAt",
-    }))
-    .items
-
     const pubs = (await createClient().
       getEntries({
         content_type: CONSTANTS.CTF_PUB_TYPE_ID,
     }))
     .items
+    state.pubs = pubs
 
     const genres = (await createClient().
       getEntries({
         content_type: CONSTANTS.CTF_GENRE_TYPE_ID,
     }))
     .items
-
-    state.areas = areas
-    state.pubs = pubs
     state.genres = genres
+
+    state.areaStationMapping = {}
+    for (let area of Object.keys(areaTree)) {
+      state.areas.push(area)
+
+      let stations = []
+      for (let subArea of Object.keys(areaTree[area])) {
+        stations = stations.concat(areaTree[area][subArea])
+      }
+      state.stations = state.stations.concat(stations)
+
+      state.areaStationMapping[area] = stations
+    }
   }
 }
 
