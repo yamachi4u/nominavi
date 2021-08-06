@@ -80,19 +80,22 @@ export default {
 
   generate: {
     routes() {
-      const pubPages = cdaClient
+      const routes = []
+
+      cdaClient
         .getEntries(CONSTANTS.CTF_PUB_TYPE_ID)
         .then(entries => {
-          return [...entries.items.map(entry => `/pub/${entry.fields.slug}`)]
+
+          entries.items.forEach(entry => routes.push(`/pub/${entry.fields.slug}`))
         })
 
-      const simplePages = cdaClient
+      cdaClient
         .getEntries(CONSTANTS.CTF_SIMPLE_PAGE_TYPE_ID)
         .then(entries => {
-          return [...entries.items.map(entry => `/${entry.fields.slug}`)]
+          entries.items.forEach(entry => routes.push(`/${entry.fields.slug}`))
         })
 
-      return pubPages.concat(simplePages)
+      return routes
     }
   },
 
