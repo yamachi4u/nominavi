@@ -4,7 +4,9 @@
 
     <core-drawer />
 
-    <v-main>
+    <v-main
+      v-bind:style="{ paddingTop: paddingTop }"
+    >
       <v-container>
         <Nuxt />
       </v-container>
@@ -13,4 +15,18 @@
     <core-footer />
   </v-app>
 </template>
+
+<script>
+export default {
+  computed: {
+    paddingTop () {
+      if (this.$vuetify.breakpoint.smAndDown) {
+        return "56px"
+      } else {
+        return "88px"
+      }
+    },
+  }
+}
+</script>
 
