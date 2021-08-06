@@ -12,7 +12,7 @@
         </v-btn>
         <v-btn
           text
-          to="/privacypolicy"
+          to="/privacy-policy"
         >
           プライバシーポリシー
         </v-btn>
@@ -21,6 +21,12 @@
           to="twitter"
         >
           twitterアカウント
+        </v-btn>
+        <v-btn
+          text
+          to="/for-owners"
+        >
+          店舗運営者の方へ
         </v-btn>
       </v-row>
       <v-btn

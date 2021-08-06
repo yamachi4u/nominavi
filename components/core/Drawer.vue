@@ -33,7 +33,7 @@
       <v-divider ></v-divider>
 
       <v-list-item
-        to="/privacypolicy"
+        to="/privacy-policy"
       >
         <v-list-item-title>
           プライバシーポリシー
@@ -45,6 +45,14 @@
       >
         <v-list-item-title>
           Twitterアカウント
+        </v-list-item-title>
+      </v-list-item>
+
+      <v-list-item
+        to="/for-owners"
+      >
+        <v-list-item-title>
+          店舗運営者の方へ
         </v-list-item-title>
       </v-list-item>
 

@@ -80,11 +80,19 @@ export default {
 
   generate: {
     routes() {
-      return cdaClient
+      const pubPages = cdaClient
         .getEntries(CONSTANTS.CTF_PUB_TYPE_ID)
         .then(entries => {
           return [...entries.items.map(entry => `/pub/${entry.fields.slug}`)]
         })
+
+      const simplePages = cdaClient
+        .getEntries(CONSTANTS.CTF_SIMPLE_PAGE_TYPE_ID)
+        .then(entries => {
+          return [...entries.items.map(entry => `/${entry.fields.slug}`)]
+        })
+
+      return pubPages.concat(simplePages)
     }
   },
 
