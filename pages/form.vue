@@ -23,6 +23,20 @@
       ></v-select>
     </validation-provider>
 
+    <validation-provider
+      v-slot="{ errors }"
+      name="お名前"
+      rules="required"
+    >
+      <v-text-field
+        v-model="namae"
+        :error-messages="errors"
+        label="お名前"
+        required
+        name="entry.838135061"
+      ></v-text-field>
+    </validation-provider>
+
 
       <validation-provider
         v-slot="{ errors }"
@@ -91,7 +105,7 @@
       <v-btn @click="clear">
         書き直す
       </v-btn>
-
+      <p>投稿が完了しますとメールアドレス宛てに確認メールが届きます。（仮テキスト）</p>
     </form>
 
     <iframe id="dummyiframe" name="dummy" style="display:none;"  ></iframe>
@@ -135,13 +149,15 @@
       email: '',
       type: null,
       items: [
-        '店舗情報提供',
+        '店舗情報提供(店舗関係者)',
+        '店舗情報提供(一般)',
         '削除依頼',
         'その他の問い合わせ',
       ],
       checkbox: null,
       shopInfo: null,
       siteUrl:null,
+      name:null,
     }),
     methods: {
       submit () {
@@ -151,6 +167,7 @@
         location.href = './';
       },
       clear () {
+        this.name=null
         this.email = ''
         this.type = null
         this.shopInfo = null
