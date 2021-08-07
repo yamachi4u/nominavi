@@ -27,6 +27,7 @@
           class="pa-0"
         >
           <v-card-title
+            class="font-weight-bold"
             v-text="pub.fields.name"
           >
           </v-card-title>
@@ -54,6 +55,11 @@
               >
               </v-chip>
             </v-chip-group>
+            <v-card-text
+              class="grey--text text--darken-2 pl-1 pr-0 pt-0 pb-2"
+            >
+              定休日：{{ pub.fields.holiday }}
+            </v-card-text>
           </div>
         </v-col>
       </v-row>
