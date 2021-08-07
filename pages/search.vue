@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid>
+  <section>
     <Search />
     <div id="result">
       <v-container
@@ -22,16 +22,17 @@
         </div>
       </template>
       <template v-else>
-        <v-list
-          id="result"
-          class="py-0"
+        <v-container
+          class="px-0"
         >
           <template v-if="pubs.length">
-            <card
-              v-for="(pub, i) in pubs"
-              :key="i"
-              :pub="pub"
-            />
+            <v-row>
+              <card
+                v-for="(pub, i) in pubs"
+                :key="i"
+                :pub="pub"
+              />
+            </v-row>
           </template>
           <template v-else>
             <v-list-item class="justify-center">
@@ -45,7 +46,7 @@
               </div>
             </v-list-item>
           </template>
-        </v-list>
+        </v-container>
       </template>
       <v-pagination
         class="mx-auto"
@@ -56,7 +57,7 @@
         @input="pageChange"
       ></v-pagination>
     </div>
-  </v-container>
+  </section>
 </template>
 
 <script>
