@@ -1,73 +1,92 @@
 <template>
-  <v-col cols="12">
+  <v-col
+    cols="12"
+    class="mb-4"
+  >
     <v-card
-      elevation="5"
-      class="my-6"
-      :to="'/pub/'+id"
+      :to="'/pub/'+pub.sys.id"
     >
-      <div class="d-flex">
-        <v-avatar
-          class="ma-3"
-          size="150"
-          tile
+      <v-row
+        class="mx-0"
+      >
+        <v-col
+          md="4"
+          class="hidden-sm-and-down"
         >
-          <v-img :src="image"></v-img>
-        </v-avatar>
-        <div>
+          <v-avatar
+            height="200"
+            width="100%"
+            tile
+          >
+            <v-img :src="getImage(pub)"/>
+          </v-avatar>
+        </v-col>
+        <v-col
+          cols="12"
+          md="8"
+          class="pa-0"
+        >
           <v-card-title
-            class="text-h5"
-            v-text="name"
-          ></v-card-title>
-          <div>
-            営業時間: {{}}
-          </div>
-          <div>
-            ジャンル:
-            <v-chip
-              class="ma-2"
+            v-text="pub.fields.name"
+          >
+          </v-card-title>
+          <v-card-subtitle
+            class="pb-2"
+            v-text="getAccess(pub)"
+          >
+          </v-card-subtitle>
+          <div class="px-3">
+            <v-avatar
+              height="180"
+              width="100%"
+              tile
+              class="hidden-md-and-up"
             >
-              居酒屋
-            </v-chip>
-            <v-chip
-              class="ma-2"
+              <v-img :src="getImage(pub)"/>
+            </v-avatar>
+            <v-chip-group
+              class="py-1"
+              column
             >
-              海鮮
-            </v-chip>
+              <v-chip
+                v-for="tag in getTags(pub)"
+                v-text="tag"
+              >
+              </v-chip>
+            </v-chip-group>
           </div>
-        </div>
-
-      </div>
+        </v-col>
+      </v-row>
     </v-card>
   </v-col>
 </template>
 <script>
 export default {
   props: {
-    name: {
-      type: String,
+    pub: {
+      type: Object,
       default: ''
     },
-    id: {
-      type: String,
-      default: ''
+  },
+
+  methods: {
+    getImage: pub => {
+      if(pub.fields.image){
+        return pub.image.fields.file.url
+      } else {
+        return pub.fields.imgUrl
+      }
     },
-    phone_number: {
-      type: String,
-      default: ''
+    getAccess: pub => {
+      const access = pub.fields.access
+      const station = pub.fields.station
+
+      return access || station
     },
-    link: {
-      type: String,
-      default: ''
+    getTags: pub => {
+      return pub.fields.tags.fields.name && [pub.fields.tags.fields.name]
     },
-    tags: {
-      type: String,
-      default: ''
-    },
-    image: {
-      type: String,
-      default: ''
-    }
-  }
+  },
 }
 </script>
 

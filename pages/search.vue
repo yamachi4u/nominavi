@@ -28,13 +28,9 @@
         >
           <template v-if="pubs.length">
             <card
-              v-for="(pub, i) in displayPubs"
+              v-for="(pub, i) in pubs"
               :key="i"
-              :name="pub.fields.name"
-              :id="pub.sys.id"
-              :phone_number="pub.fields.phoneNumber"
-              :link="pub.fields.link"
-              :image="pub.fields.imgUrl"
+              :pub="pub"
             />
           </template>
           <template v-else>

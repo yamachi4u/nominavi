@@ -1,19 +1,19 @@
 <template>
   <section>
-    <h1>
-      ランダムピックアップ
-    </h1>
-    <v-row dense>
-      <card
-        v-for="(pub, i) in pubs"
-        :key="i"
-        :name="pub.fields.name"
-        :id="pub.sys.id"
-        :phone_number="pub.fields.phoneNumber"
-        :link="pub.fields.link"
-        :image="pub.fields.imgUrl"
-      />
-    </v-row>
+    <h2>
+      ピックアップ
+    </h2>
+    <v-container
+      class="px-0"
+    >
+      <v-row>
+        <card
+          v-for="(pub, i) in pubs"
+          :key="i"
+          :pub="pub"
+        />
+      </v-row>
+    </v-container>
   </section>
 </template>
 
@@ -22,15 +22,11 @@ export default {
   data() {
     const pubs = this.$store.state.pubs
     const random = shuffle(pubs).slice(0, 3)
-    random.map((item)=> {
-      if(item.fields.image){
-        item.fields.imgUrl = item.image.fields.file.url
-      }
-    })
+
     return {
       pubs: random
     }
-  }
+  },
 }
 
 /*
