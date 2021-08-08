@@ -27,7 +27,7 @@
           class="pa-0"
         >
           <v-card-title
-            class="font-weight-bold"
+            class="font-weight-bold mb-2"
             v-text="pub.fields.name"
           >
           </v-card-title>
@@ -38,10 +38,10 @@
           </v-card-subtitle>
           <div class="px-3">
             <v-avatar
-              height="180"
+              height="200"
               width="100%"
               tile
-              class="hidden-md-and-up"
+              class="hidden-md-and-up text-center"
             >
               <v-img :src="getImage(pub)"/>
             </v-avatar>
@@ -51,6 +51,7 @@
             >
               <v-chip
                 v-for="tag in getTags(pub)"
+                color="primary"
                 v-text="tag"
               >
               </v-chip>
@@ -95,4 +96,3 @@ export default {
   },
 }
 </script>
-

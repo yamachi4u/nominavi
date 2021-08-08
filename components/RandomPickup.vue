@@ -4,7 +4,7 @@
       ピックアップ
     </h2>
     <v-container
-      class="px-0"
+      class="px-0 mt-5"
     >
       <v-row>
         <card
@@ -41,4 +41,3 @@ const shuffle = ([...array]) => {
   return array;
 }
 </script>
-
